@@ -52,6 +52,11 @@ public class GestionProductos extends javax.swing.JInternalFrame {
         setClosable(true);
 
         jcRubro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comestible", "Limpieza", "Perfumería", " " }));
+        jcRubro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcRubroActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Stock");
 
@@ -70,8 +75,18 @@ public class GestionProductos extends javax.swing.JInternalFrame {
         });
 
         jbEliminar.setText("Eliminar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
         jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         jtDisponible.setText(".");
 
@@ -80,6 +95,11 @@ public class GestionProductos extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Código");
 
+        jtCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtCodigoActionPerformed(evt);
+            }
+        });
         jtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtCodigoKeyReleased(evt);
@@ -94,6 +114,12 @@ public class GestionProductos extends javax.swing.JInternalFrame {
         });
 
         jLabel3.setText("Descripción");
+
+        jtDescripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtDescripcionActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Precio");
 
@@ -344,6 +370,51 @@ public class GestionProductos extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_jtCodigoKeyReleased
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+       
+        try{
+        
+            int codigo = Integer.parseInt(jtCodigo.getText());
+            
+            for(Producto prod : Supermercado.listaProductos){
+        
+            if(codigo == prod.getCodigo()){
+            
+                Supermercado.listaProductos.remove(prod);
+                JOptionPane.showMessageDialog(this, "Producto eliminado exitosamente!");
+                return;
+            }
+        
+        }
+        
+        JOptionPane.showMessageDialog(this, "No se encontró el producto...");
+        
+        }catch(NumberFormatException e){
+        
+            JOptionPane.showMessageDialog(this, "Ingrese el codigo del producto para poder eliminar... ");
+        
+        }
+        
+    }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDescripcionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtDescripcionActionPerformed
+
+    private void jtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtCodigoActionPerformed
+
+    private void jcRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcRubroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcRubroActionPerformed
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        
+        dispose();
+        
+    }//GEN-LAST:event_jbSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
